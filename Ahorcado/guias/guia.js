@@ -9,6 +9,7 @@ const reinicio = document.querySelector(".reiniciar");
 let palabraselect,palabrascorrectas = [], conteoerrores = 0;
 const maxadivinar = 6;
 
+//Coloca el juego en estado base
 const reiniciarjuego = () =>{
     palabrascorrectas = []; 
     conteoerrores = 0;
