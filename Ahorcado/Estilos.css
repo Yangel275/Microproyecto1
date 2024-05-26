@@ -17,7 +17,7 @@ body{
 /* Contenedor es el gran rectangulo blanco y todo lo que lleva dentro */
 .contenedor{
         width: 850px;
-        background: #fff;
+        background: #6882cf;
         display: flex;
         gap: 70px;
         padding: 60px 40px;
@@ -30,7 +30,7 @@ body{
         max-width: 270px;
 }
 .cajaAhorcado h1{
-        font-size: 1.45rem;
+        font-size: 1.45rem; 
         margin-top: 20px;
         text-align: center;
         text-transform: uppercase;
@@ -46,7 +46,7 @@ body{
 .mostrar-palabra .letra{
         width: 28px;
         margin-bottom: 40px;
-        border-bottom: 5px solid #000;
+        border-bottom: 5px solid #fefefe;
         font-size: 2rem;
         font-weight: 600;
         text-transform: uppercase;
@@ -80,13 +80,13 @@ body{
         
 }
 
-.teclado button{
+.teclado boton{
         padding: 7px;
         width: calc(100% / 9 -5px);
 }
 
 /* game-modal conttola el "pop up" de perder */
-:where(.game-modal, .teclado) button{
+:where(.game-modal, .teclado) boton{
         color:#fff;
         text-transform: uppercase;
         background: #ff8000;
@@ -98,7 +98,14 @@ body{
         cursor: pointer;
         
 }
-:where(.game-modal, .teclado) button:hover{
+
+.keyboard boton[disabled]{
+        opacity: 0.6;
+        pointer-events: none;
+}
+
+
+:where(.game-modal, .teclado) boton:hover{
         background: #ffa448;
 }
 .game-modal{ 
@@ -107,13 +114,21 @@ body{
        top: 0;
        width: 100%;
        height: 100%;
+       opacity: 0;
+       pointer-events: none;
+       z-index: 999;
        /*En display lo prendes y apagas, solo cambia el "none" y ponle "flex"*/
-       display: none;
+       display: flex;
        align-items: center;
        justify-content: center;
        background: rgba(0, 0, 0, 0.6);
+       transition: opacity 0.4s ease;
 }
 
+.game-modal.mostrar{
+        opacity: 1;
+        pointer-events: auto;
+}
 .game-modal .cajita{
         background: #fff;
         max-width: 420px;
@@ -125,6 +140,7 @@ body{
 }
 .game-modal img{
         max-width: 130px;
+        margin-bottom: 20px;
 }
 .game-modal h4{
         font-size: 1.7rem;
@@ -138,7 +154,7 @@ body{
         color: #ff8000;
         font-weight: 600;
 }
-.game-modal button{
+.game-modal boton{
         padding: 15px 23px;
         border-radius: 10px;
 }
